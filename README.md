@@ -30,7 +30,7 @@ This is a simple project for simulating the development of smart contracts using
 pragma solidity ^0.8.26;
 
 contract myContract {
-    mapping(address => uint256) school balances;
+    mapping(address => uint286) school balances;
     address public owner;
 
     constructor() {
