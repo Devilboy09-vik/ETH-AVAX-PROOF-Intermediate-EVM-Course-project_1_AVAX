@@ -1,40 +1,43 @@
-# Hello World
+# ETH-AVAX-PROOF-Intermediate-EVM-Course
 
-This Solidity program is a simple "Hello World" program that demonstrates the basic syntax and functionality of the Solidity programming language. The purpose of this program is to serve as a starting point for those who are new to Solidity and want to get a feel for how it works.
-
+## Project Title
+write a smart contract that implements the require(), assert() and revert() statements.
 ## Description
+This is a simple project for simulating the development of smart contracts using Remix IDE and the Solidity language .Firstly We use the modifier and constructor. Then make deposit,withdraw,getbalance and totalbalance function.In this project we use the error handling concept. so, We use the revert() , require() and assert() .
 
-This program is a simple contract written in Solidity, a programming language used for developing smart contracts on the Ethereum blockchain. The contract has a single function that returns the string "Hello World!". This program serves as a simple and straightforward introduction to Solidity programming, and can be used as a stepping stone for more complex projects in the future.
+### Getting started
+## Installing
+*To run the project code, you need an IDE where you can run the Solidity language.One such IDE is the online Remix IDE (https://remix.ethereum.org/), which you can run on any browser of your choice.
+*The code in this project can be used by simply copying it to the editor of any IDE where you can run Solidity version 0.8.7.
+## Executing program
+*How to run the program
 
-## Getting Started
+1. Copy the Solidity code provided in the "project_1_AVAX" file.
 
-### Executing program
+2. Open Remix IDE (https://remix.ethereum.org/).
 
-To run this program, you can use Remix, an online Solidity IDE. To get started, go to the Remix website at https://remix.ethereum.org/.
+3. In the Remix IDE, create a new file and paste the copied code into it.
 
-Once you are on the Remix website, create a new file by clicking on the "+" icon in the left-hand sidebar. Save the file with a .sol extension (e.g., HelloWorld.sol). Copy and paste the following code into the file:
+4. Compile the Code by either pressing "Ctrl + S" to compile the code or using the Compile button in the Remix IDE interface.
 
-```javascript
-pragma solidity ^0.8.4;
+5. Use the Deploy button in the Remix IDE to deploy the contract to a local Ethereum network or a test network.
 
-contract HelloWorld {
-    function sayHello() public pure returns (string memory) {
-        return "Hello World!";
-    }
-}
+6. Use the deployed contract's interface in Remix IDE  and then deposit the ether and then input some ether in the deposit button and then call the deposit function and then call the getbalance and total balance.
 
-```
+## Code 
 
-To compile the code, click on the "Solidity Compiler" tab in the left-hand sidebar. Make sure the "Compiler" option is set to "0.8.4" (or another compatible version), and then click on the "Compile HelloWorld.sol" button.
 
-Once the code is compiled, you can deploy the contract by clicking on the "Deploy & Run Transactions" tab in the left-hand sidebar. Select the "HelloWorld" contract from the dropdown menu, and then click on the "Deploy" button.
+## Help 
 
-Once the contract is deployed, you can interact with it by calling the sayHello function. Click on the "HelloWorld" contract in the left-hand sidebar, and then click on the "sayHello" function. Finally, click on the "transact" button to execute the function and retrieve the "Hello World!" message.
+If you encounter any issues or have any questions, here are some common solutions:
 
+1. Ensure you are using Solidity version 0.8.7 or later.
+
+2. Check the Remix IDE console for error messages and follow the guidance provided.
 ## Authors
+Contributors names and contact info
 
-Metacrafter Chris  
-[@metacraftersio](https://twitter.com/metacraftersio)
+Vikram Garg gmail: vikramgarg979@gmail.com
 
 
 ## License
