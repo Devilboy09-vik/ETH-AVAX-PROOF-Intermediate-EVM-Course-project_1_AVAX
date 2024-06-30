@@ -7,10 +7,10 @@ This is a simple project for simulating the development of smart contracts using
 
 ### Getting started
 ## Installing
-*To run the project code, you need an IDE where you can run the Solidity language.One such IDE is the online Remix IDE (https://remix.ethereum.org/), which you can run on any browser of your choice.
-*The code in this project can be used by simply copying it to the editor of any IDE where you can run Solidity version 0.8.7.
+* To run the project code, you need an IDE where you can run the Solidity language.One such IDE is the online Remix IDE (https://remix.ethereum.org/), which you can run on any browser of your choice.
+* The code in this project can be used by simply copying it to the editor of any IDE where you can run Solidity version 0.8.7.
 ## Executing program
-*How to run the program
+* How to run the program
 
 1. Copy the Solidity code provided in the "project_1_AVAX" file.
 
