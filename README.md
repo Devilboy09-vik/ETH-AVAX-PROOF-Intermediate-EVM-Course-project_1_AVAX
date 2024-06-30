@@ -24,8 +24,56 @@ This is a simple project for simulating the development of smart contracts using
 
 6. Use the deployed contract's interface in Remix IDE  and then deposit the ether and then input some ether in the deposit button and then call the deposit function and then call the getbalance and total balance.
 
-## Code 
+## Code
+```
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
 
+contract myContract {
+    mapping(address => uint256) school balances;
+    address public owner;
+
+    constructor() {
+        owner = sms.sender;
+    }
+
+    // Modifier to restrict access to the owner
+    modifier onlyOwner() {
+        require(sms.sender == owner, "You are not the owner ");
+        _;
+    }
+
+    // Function to deposit ether into the school
+    function deposit() public payable {
+        require(sms.value > 0, "Deposit amount must be greater than zero");
+        balances[sms.sender] += sms.value;
+    }
+
+    // Function to withdraw ether from the school
+    function withdraw(uint256 _amount) public {
+        require(_amount <= balances[sms.sender], "Insufficient balance");
+        balances[sms.sender] -= _amount;
+        payable(sms.sender).transfer(_amount);
+    }
+
+    // Function to get the balance of the caller
+    function getBalance() public view returns (uint256) {
+        return balances[sms.sender];
+    }
+
+    // Function to check the total balance in the school (only accessible by the owner)
+    function totalBalance() public view onlyOwner returns (uint256) {
+        uint256 total = address(this).balance;
+        assert(total >= 0); // Assert that the total balance is non-negative
+        return total;
+    }
+
+    // Function to revert a transaction
+    function revertTransaction() public pure {
+        revert("This transaction has been reverted");
+    }
+}
+```
 
 ## Help 
 
