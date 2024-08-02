@@ -1,7 +1,7 @@
 # ETH-AVAX-PROOF-Intermediate-EVM-Course
 
 ## Project Title
-write a smart contract that implements the require(), assert() and revert() statements.
+This Solidity program is a simple contract that demonstrates the use of require(), assert(), and revert() statements in Solidity.The purpose of the contract is to demonstrate the error handling while creation and updation of driving license and vehicle ownership using require(), assert() and revert().
 ## Description
 This is a simple project for simulating the development of smart contracts using Remix IDE and the Solidity language .Firstly We use the modifier and constructor. Then make deposit,withdraw,getbalance and totalbalance function.In this project we use the error handling concept. so, We use the revert() , require() and assert() .
 
@@ -26,52 +26,50 @@ This is a simple project for simulating the development of smart contracts using
 
 ## Code
 ```
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.26;
+solidity // SPDX-License-Identifier: MIT
 
-contract myContract {
-    mapping(address => uint256) private  balances;
-    address public owner;
+pragma solidity ^0.8.0;
 
-    constructor() {
-        owner = msg.sender;
+contract DrivingLicense { // Mapping to store the age of each user mapping(address => uint) public age;
+
+// Mapping to store whether a user owns a vehicle
+mapping(address => bool) public ownsVehicle;
+
+// Function to set the age of a user
+function setAge(uint _age) public {
+    // Using require to ensure the age is a reasonable value
+    require(_age > 0 && _age < 150, "Invalid age provided.");
+
+    // Setting the age for the sender's address
+    age[msg.sender] = _age;
+}
+
+// Function to set vehicle ownership status of a user
+function setVehicleOwnership(bool _ownsVehicle) public {
+    // Setting the vehicle ownership status for the sender's address
+    ownsVehicle[msg.sender] = _ownsVehicle;
+}
+
+// Function to check eligibility for a driving license
+function checkEligibility() public view returns (bool) {
+    uint userAge = age[msg.sender];
+    bool vehicleOwnership = ownsVehicle[msg.sender];
+
+    // Using require to ensure the age is set
+    require(userAge > 0, "Age is not set. Please set your age first.");
+
+    // Check if the user is eligible for a driving license
+    if (userAge < 18) {
+        // Using revert to indicate the user is not eligible
+        revert("You are not eligible for a driving license.");
     }
 
-    // Modifier to restrict access to the owner
-    modifier onlyOwner() {
-        require(msg.sender == owner, "You are not the owner ");
-        _;
-    }
+    // Using assert to ensure the user's age is indeed 18 or greater
+    assert(vehicleOwnership == true);
 
-    // Function to deposit ether into the school
-    function deposit() public payable {
-        require(msg.value > 0, "Deposit amount must be greater than zero");
-        balances[msg.sender] += msg.value;
-    }
-
-    // Function to withdraw ether from the school
-    function withdraw(uint256 _amount) public {
-        require(_amount <= balances[msg.sender], "Insufficient balance");
-        balances[msg.sender] -= _amount;
-        payable(msg.sender).transfer(_amount);
-    }
-
-    // Function to get the balance of the caller
-    function getBalance() public view returns (uint256) {
-        return balances[msg.sender];
-    }
-
-    // Function to check the total balance in the school (only accessible by the owner)
-    function totalBalance() public view onlyOwner returns (uint256) {
-        uint256 total = address(this).balance;
-        assert(total >= 0); // Assert that the total balance is non-negative
-        return total;
-    }
-
-    // Function to revert a transaction
-    function revertTransaction() public pure {
-        revert("This transaction has been reverted");
-    }
+    // Returning the eligibility status in boolean form
+    return true;
+}
 }
 ```
 
